@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="section-tittle mb-70">
-                        <h2>最新到貨</h2>
+                        <h2>勢力</h2>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                         </div>
                         <div class="product-caption">
                             <h3><a href="product_details.html">{{ $item->title }}</a></h3>
-                            <span>$ {{ $item->price_og }}</span>
+                            {{--<span>$ {{ $item->price_og }}</span>--}}
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
             <!-- Button -->
             <div class="row justify-content-center">
                 <div class="room-btn pt-70">
-                    <a href="catagori.html" class="btn view-btn1">檢視更多商品</a>
+                    <a href="catagori.html" class="btn view-btn1">檢視更多辣妹</a>
                 </div>
             </div>
         </div>
@@ -144,7 +144,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                 <div class="video-wrap">
-                    <div class="play-btn "><a class="popup-video" href="https://www.youtube.com/watch?v=KMc6DyEJp04"><i class="fas fa-play"></i></a></div>
+                    <div class="play-btn "><a class="popup-video" href="{{ $video->url }}"><i class="fas fa-play"></i></a></div>
                 </div>
                 </div>
             </div>
@@ -161,31 +161,32 @@
     <!--? Watch Choice  Start-->
     <div class="watch-area section-padding30">
         <div class="container">
+            
             <div class="row align-items-center justify-content-between padding-130">
                 <div class="col-lg-5 col-md-6">
                     <div class="watch-details mb-40">
-                        <h2>Watch of Choice</h2>
-                        <p>Enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-                        <a href="shop.html" class="btn">Show Watches</a>
+                        <h2>{{ $show[0]->title }}</h2>
+                        <p>{{ $show[0]->subtitle }}</p>
+                        <a href="shop.html" class="btn">Show Nami</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-10">
                     <div class="choice-watch-img mb-40">
-                        <img src="{{ asset('img/gallery/choce_watch1.png') }}" alt="">
+                        <img src="{{ Voyager::image($show[0]->pic) }}" alt="">
                     </div>
                 </div>
             </div>
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-6 col-md-6 col-sm-10">
                     <div class="choice-watch-img mb-40">
-                        <img src="{{ asset('img/gallery/choce_watch2.png') }}" alt="">
+                        <img src="{{ Voyager::image($show[1]->pic) }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-6">
                     <div class="watch-details mb-40">
-                        <h2>Watch of Choice</h2>
-                        <p>Enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-                        <a href="shop.html" class="btn">Show Watches</a>
+                        <h2>{{ $show[1]->title }}</h2>
+                        <p>{{ $show[1]->subtitle }}</p>
+                        <a href="shop.html" class="btn">Show Nami</a>
                     </div>
                 </div>
             </div>
@@ -197,14 +198,17 @@
         <div class="container">
             <div class="method-wrapper">
                 <div class="row d-flex justify-content-between">
+                    @foreach ($row3 as $item)
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-method mb-40">
                             <i class="ti-package"></i>
-                            <h6>Free Shipping Method</h6>
-                            <p>aorem ixpsacdolor sit ameasecur adipisicing elitsf edasd.</p>
+                            <h6>{{ $item->title }}</h6>
+                            <p>{{ $item->subtitle}}</p>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    @endforeach
+                    
+                    {{--<div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-method mb-40">
                             <i class="ti-unlock"></i>
                             <h6>Secure Payment System</h6>
@@ -217,7 +221,7 @@
                             <h6>Secure Payment System</h6>
                             <p>aorem ixpsacdolor sit ameasecur adipisicing elitsf edasd.</p>
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
             </div>
         </div>

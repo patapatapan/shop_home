@@ -46,12 +46,12 @@
                     <div class="menu-wrapper">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="{{ asset('img/logo/logo.png') }}" alt=""></a>
+                            <a href="{{url('/')}}"><img src="{{ Voyager::image($logo[0]->pic) }}" alt=""></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu d-none d-lg-block">
                             <nav>          
-                                {{ menu('frontend','my_menu') }}                                      
+                                {{ menu('frontend','menus.my_menu') }}                                      
                                 {{-- <ul id="navigation">  
                                     <li><a href="{{ url('/') }}">Home</a></li>
                                     <li><a href="{{ url('/shop') }}">shop</a></li>
@@ -83,7 +83,8 @@
                         </div>
                         <!-- Header Right -->
                         <div class="header-right">
-                            <ul>
+                            {{ menu('right_top','menus.right_top') }}
+                            {{--<ul>
                                 <li>
                                     <div class="nav-search search-switch">
                                         <span class="flaticon-search"></span>
@@ -91,7 +92,7 @@
                                 </li>
                                 <li> <a href="login.html"><span class="flaticon-user"></span></a></li>
                                 <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
-                            </ul>
+                            </ul>--}}
                         </div>
                     </div>
                     <!-- Mobile Menu -->
@@ -116,17 +117,18 @@
                             <div class="single-footer-caption mb-30">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="{{ asset('img/logo/logo2_footer.png') }}" alt=""></a>
+                                    <a href="index.html"><img src="{{ Voyager::image($logo[0]->pic) }}" alt=""></a>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
-                                        <p>{{ setting('site.description') }}</p>
+                                        <p>這是隨便做的網頁</p>
                                 </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
+                    {{ menu('footer_menu','menus.my_footer_menu') }}
+                    {{--<div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
                                 <h4>Quick Links</h4>
@@ -164,7 +166,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
                 <!-- Footer bottom -->
                 <div class="row align-items-center">
